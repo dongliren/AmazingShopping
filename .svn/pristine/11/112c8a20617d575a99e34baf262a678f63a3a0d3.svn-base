@@ -1,0 +1,61 @@
+package com.oracle.shop.model.daoImpl.entity;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import com.oracle.shop.model.daoImpl.CommonDaoImpl;
+import com.oracle.shop.model.entity.Goods;
+import com.oracle.shop.util.Factory;
+import com.oracleoaec.common.MyTemplate;
+import com.oracleoaec.common.PreparedStatementSetter;
+import com.oracleoaec.common.RowCallBackHandler;
+import com.oracleoaec.exception.DataAccessException;
+
+
+public class GoodsImpl extends CommonDaoImpl<Goods>{
+	ArrayList<Goods> goodsList=new ArrayList<>();
+	/**
+	 * 
+	 */
+
+	private static final long serialVersionUID = 1L;
+	//重写查找商品类别的方法
+	@Override
+	public ArrayList<Goods> findByType(final int id) throws DataAccessException {
+		//获取连接
+		
+		Connection conn;
+		try {
+			conn = Factory.getConnction();
+			MyTemplate template=new MyTemplate(conn);
+			template.query("select goodsName,goodsDiscribe,Price,brandname from goods where typeId=? and id between 38 and 45 ",
+				new PreparedStatementSetter() {
+					@Override
+					public void setValues(PreparedStatement pstmt) throws SQLException {
+						pstmt.setInt(1,id);
+					}
+				}, new RowCallBackHandler() {
+					@Override
+					public void processRow(ResultSet rs) throws SQLException {
+						while(rs.next()){
+							Goods good=new Goods();
+							good.setGoodsName(rs.getString("goodsName"));
+							good.setGoodsDiscribe(rs.getString("goodsDiscribe"));
+							good.setPrice(rs.getDouble("Price"));
+							good.setBrandName(rs.getString("brandname"));
+							goodsList.add(good);
+						}
+					}
+				});
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return goodsList;
+		
+	}
+	
+}

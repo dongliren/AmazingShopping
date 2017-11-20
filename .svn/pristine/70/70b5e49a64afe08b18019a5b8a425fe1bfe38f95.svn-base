@@ -1,0 +1,13 @@
+package com.oracle.shop.model.daoImpl;
+
+import com.oracle.shop.model.dao.ICommonDao;
+import com.oracle.shop.model.entity.ShopUser;
+
+public abstract class CommonDaoImpl<T> implements ICommonDao<T> {
+
+	@Override
+	public ShopUser findShopUser(String name) {
+		return null;
+	}
+	
+}

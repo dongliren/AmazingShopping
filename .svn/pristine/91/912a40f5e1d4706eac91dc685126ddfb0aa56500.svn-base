@@ -1,0 +1,36 @@
+package com.oracle.shop.model.dao;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.oracle.shop.model.entity.Comments;
+import com.oracle.shop.model.entity.Goods;
+import com.oracle.shop.model.entity.ShopUser;
+import com.oracle.shop.model.entity.UserOrderlist;
+import com.oracleoaec.exception.DataAccessException;
+
+public interface ICommonDao<T> extends java.io.Serializable{
+	/**
+	 * 谌敦伟写的方法
+	 * */
+	ShopUser findShopUser(String name);
+	/**
+	 * @author 朱彬
+	 * 根据ID查找商品详情页的信息
+	 * */
+	T findByID(int id);
+
+	int save(T t);//谌敦伟插入数据
+	ShopUser findShopUserT(String tel);                    //谌敦伟根据手机号查找数据
+	//根据类查找商品
+	List<Goods> findByType(int id) throws DataAccessException;
+	
+	
+	/**
+	 * 朱彬查询订单明细
+	 * */
+	List<UserOrderlist> findOrderlist(int status);
+	
+	//根据商品id查找评论
+	List<Comments> findcomm(int id);
+}

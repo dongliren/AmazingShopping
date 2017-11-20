@@ -1,0 +1,56 @@
+package com.oracle.shop.model.daoImpl.entity;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.oracle.shop.model.daoImpl.CommonDaoImpl;
+import com.oracle.shop.model.entity.Comments;
+import com.oracle.shop.model.entity.Goods;
+import com.oracle.shop.model.entity.GoodsType;
+import com.oracle.shop.util.Factory;
+import com.oracleoaec.common.MyTemplate;
+import com.oracleoaec.common.RowCallBackHandler;
+import com.oracleoaec.exception.DataAccessException;
+
+public class Typeimpl extends CommonDaoImpl<Comments>{
+	ArrayList<GoodsType> typeList=new ArrayList<>();//接收查找到的types集合
+	@Override
+	public List<Goods> findByType(int id) throws DataAccessException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public int getTotalGoods() throws DataAccessException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public ArrayList<GoodsType> getType() throws DataAccessException{
+		Connection conn;
+		try {
+			conn = Factory.getConnction();
+			MyTemplate template=new MyTemplate(conn);
+			template.query("select typeid,typename from goods_type ", new RowCallBackHandler() {
+				@Override
+				public void processRow(ResultSet rs) throws SQLException {
+					while(rs.next()){
+						GoodsType type=new GoodsType();
+						type.setTypeId(rs.getInt("typeid"));
+						type.setName(rs.getString("typename"));
+						typeList.add(type);
+					}
+				}
+			});
+		}catch(SQLException e){
+			System.out.println(e.getMessage());
+		}
+		return typeList;
+	
+	}
+}

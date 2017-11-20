@@ -1,0 +1,12 @@
+package com.oracle.shop.model.dao;
+
+import com.oracle.shop.model.entity.ShopUser;
+
+public interface ICommonDao<T> extends java.io.Serializable{
+
+	ShopUser findShopUser(String name);
+	
+
+	int save(T t);//谌敦伟插入数据
+	ShopUser findShopUserT(String tel);                    //谌敦伟根据手机号查找数据
+}

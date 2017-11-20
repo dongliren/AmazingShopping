@@ -1,0 +1,32 @@
+package com.oracle.shop.web.controller;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.oracle.shop.model.entity.Goods;
+import com.oracle.shop.model.serviceImpl.factory.ServiceImplFactory;
+
+public class XiangQingServlet extends HttpServlet {
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		doPost(req,resp);
+	}
+	
+	public void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		response.setContentType("text/html,charset=utf-8");
+		request.setCharacterEncoding("utf-8");
+		int img_id=Integer.parseInt(request.getParameter("id"));
+		//System.out.println(img_id);
+		Goods good = ServiceImplFactory.getDao("Goods").findGoods(img_id);
+		System.out.println(good);
+		request.setAttribute("Goods", good);
+		request.getRequestDispatcher("shoppingExample.jsp").forward(request, response);
+	}
+}

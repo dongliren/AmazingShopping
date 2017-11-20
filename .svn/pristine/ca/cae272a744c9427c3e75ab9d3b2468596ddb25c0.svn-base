@@ -1,0 +1,7 @@
+package com.oracle.shop.model.daoImpl;
+
+import com.oracle.shop.model.dao.ICommonDao;
+
+public abstract class CommonDaoImpl<T> implements ICommonDao<T> {
+
+}

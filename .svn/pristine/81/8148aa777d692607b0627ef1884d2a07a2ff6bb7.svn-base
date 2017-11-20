@@ -1,0 +1,9 @@
+package com.oracle.shop.model.serviceImpl;
+
+import java.io.Serializable;
+
+import com.oracle.shop.model.service.ICommonService;
+
+public abstract class CommonServiceImpl<T> implements ICommonService{
+
+}

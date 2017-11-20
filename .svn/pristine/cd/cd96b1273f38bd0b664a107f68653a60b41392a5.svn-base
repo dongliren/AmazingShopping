@@ -1,0 +1,40 @@
+package com.oracle.shop.model.serviceImpl.factory;
+
+import java.util.WeakHashMap;
+
+import com.oracle.shop.model.dao.ICommonDao;
+import com.oracle.shop.model.daoImpl.entity.ShopUserImpl;
+import com.oracle.shop.model.service.ICommonService;
+import com.oracle.shop.model.serviceImpl.entity.GoodsServiceImpl;
+import com.oracle.shop.model.serviceImpl.entity.ShopUserServiceImpl;
+
+public final class ServiceImplFactory {
+	private final static WeakHashMap<String, ICommonService> map=new WeakHashMap<String, ICommonService>();
+	public static ICommonService getDao(String name){
+		ICommonService service =map.get(name);
+		if(service!=null){
+			return service;
+		}
+		return createDao(name);
+	}
+	private synchronized static ICommonService createDao(String name){
+		ICommonService service =null;
+		if("shopuser".equals(name)){
+			service=new ShopUserServiceImpl();
+			map.put(name, service);
+		}
+		/*if("username".equals(name)){
+			service=new ShopUserServiceImpl();
+			map.put(name, service);
+		}*/
+		/**
+		 * @author 朱彬
+		 * 根据ID查找商品详情页的信息
+		 * */
+		if("Goods".equals(name)){
+			service=new GoodsServiceImpl();
+			map.put(name, service);
+		}
+		return service;
+	}
+}

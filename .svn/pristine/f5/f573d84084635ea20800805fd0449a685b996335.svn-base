@@ -1,0 +1,7 @@
+package com.oracle.shop.model.service;
+
+import java.io.Serializable;
+
+public interface ICommonService<T> extends Serializable {
+	
+}

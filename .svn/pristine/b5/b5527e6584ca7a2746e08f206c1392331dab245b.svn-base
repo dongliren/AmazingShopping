@@ -1,0 +1,56 @@
+package com.oracle.shop.model.entity;
+
+import java.util.Date;
+
+/**
+ * 评价
+ */
+public class Comments {
+	private int id;
+	private String commentsUser;
+	private String commentsName;//评价名
+	private Date commentsTime;//评价时间
+	private String commentsContent;//评价内容
+	
+	public Comments() {
+	}
+	public Comments(int id, String commentsUser, String commentsName,
+			Date commentsTime, String commentsContent) {
+		this.id = id;
+		this.commentsUser = commentsUser;
+		this.commentsName = commentsName;
+		this.commentsTime = commentsTime;
+		this.commentsContent = commentsContent;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getCommentsUser() {
+		return commentsUser;
+	}
+	public void setCommentsUser(String commentsUser) {
+		this.commentsUser = commentsUser;
+	}
+	public String getCommentsName() {
+		return commentsName;
+	}
+	public void setCommentsName(String commentsName) {
+		this.commentsName = commentsName;
+	}
+	public Date getCommentsTime() {
+		return commentsTime;
+	}
+	public void setCommentsTime(Date commentsTime) {
+		this.commentsTime = commentsTime;
+	}
+	public String getCommentsContent() {
+		return commentsContent;
+	}
+	public void setCommentsContent(String commentsContent) {
+		this.commentsContent = commentsContent;
+	}
+	
+}

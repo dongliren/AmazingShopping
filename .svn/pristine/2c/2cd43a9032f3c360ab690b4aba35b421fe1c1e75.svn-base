@@ -1,0 +1,37 @@
+package com.oracle.shop.model.daoImpl;
+
+import com.oracle.shop.model.dao.ICommonDao;
+import com.oracle.shop.model.entity.ShopUser;
+
+public abstract class CommonDaoImpl<T> implements ICommonDao<T> {
+
+	@Override
+	public ShopUser findShopUser(String name) {
+		return null;
+	}
+	//谌敦伟插入数据
+	@Override
+	public int save(T t) {
+		return 0;
+	}
+	//谌敦伟查询数据
+	@Override
+	public ShopUser findShopUserT(String tel) {
+		return null;
+	}
+	
+	
+	
+	/**
+	 * @author 朱彬
+	 * 根据ID查找商品详情页的信息
+	 * */
+	@Override
+	public T findByID(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
+	
+}

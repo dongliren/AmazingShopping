@@ -1,0 +1,21 @@
+package com.oracle.shop.util;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.oracle.shop.model.daoImpl.entity.GoodsImpl;
+import com.oracle.shop.model.entity.Goods;
+import com.oracleoaec.exception.DataAccessException;
+
+public class Test {
+
+	
+	public static void main(String[] args) throws DataAccessException {
+		//test findByType
+//		GoodsImpl findGoods=new GoodsImpl();
+//		ArrayList<Goods> goods =(ArrayList<Goods>)findGoods.findByType(3);	
+//		for (Goods good : goods) {
+//			System.out.println(good.getGoodsName());
+//		}
+	}
+}

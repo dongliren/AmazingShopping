@@ -1,0 +1,17 @@
+package com.oracle.shop.model.entity;
+
+import com.oracle.shop.model.serviceImpl.factory.ServiceImplFactory;
+
+public class Test {
+
+	public static void main(String[] args) {
+		try {
+		String name = ServiceImplFactory.getDao("username").findShopUserT("15700786748").getUserPassword();
+		System.out.println(name);
+		} catch (Exception e) {
+			System.out.println("");
+		}
+		
+	}
+
+}

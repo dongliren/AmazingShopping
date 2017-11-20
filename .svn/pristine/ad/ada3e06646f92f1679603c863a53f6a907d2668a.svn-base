@@ -1,0 +1,22 @@
+package com.oracle.shop.model.daoImpl.entity;
+
+import com.oracle.shop.model.daoImpl.factory.DaoImplFactory;
+import com.oracle.shop.model.entity.Goods;
+import com.oracle.shop.model.serviceImpl.entity.GoodsServiceImpl;
+import com.oracle.shop.model.serviceImpl.factory.ServiceImplFactory;
+
+public class Text1 {
+
+	public static void main(String[] args) {
+		Goods g = (Goods) DaoImplFactory.getDao("Goods").findByID(93);
+		System.out.println(g+"111");
+		
+		GoodsServiceImpl s=new GoodsServiceImpl();
+		Goods d = s.findGoods(93);
+		System.out.println(d+"222");
+		
+		Goods o = ServiceImplFactory.getDao("Goods").findGoods(93);
+		System.out.println(o+"333");
+	}
+
+}

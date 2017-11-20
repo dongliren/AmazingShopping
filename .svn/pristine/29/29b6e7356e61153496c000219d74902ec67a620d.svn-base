@@ -1,0 +1,13 @@
+package com.oracle.shop.model.serviceImpl.entity;
+
+import com.oracle.shop.model.entity.ShopUser;
+import com.oracle.shop.model.serviceImpl.CommonServiceImpl;
+
+public class ShopUserServiceImpl extends CommonServiceImpl<ShopUser> {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+}

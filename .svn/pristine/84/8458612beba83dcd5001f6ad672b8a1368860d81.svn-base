@@ -1,0 +1,30 @@
+package com.oracle.shop.model.entity;
+
+import com.oracle.shop.model.daoImpl.entity.ShopUserImpl;
+import com.oracle.shop.model.daoImpl.factory.DaoImplFactory;
+import com.oracle.shop.model.serviceImpl.factory.ServiceImplFactory;
+
+public class Test {
+
+	@SuppressWarnings("unchecked")
+	public static void main(String[] args) {
+//		try {
+		//String name = ServiceImplFactory.getDao("username").findShopUserT("qq").getUserPassword();
+		//System.out.println(name);
+//		} catch (Exception e) {
+//			System.out.println("");
+//		}
+		ShopUser user=new ShopUser();
+		user.setUserName("12");
+		user.setUserTel("15700786746");
+		user.setUserPassword("12");
+//		ServiceImplFactory.getDao("username").save(user);
+//		System.out.println(row);
+		//ShopUserImpl s=new ShopUserImpl();
+		//s.save(user);
+		//DaoImplFactory.getDao("username").save(user);
+		int save = ServiceImplFactory.getDao("shopuser").save(user);
+		System.out.println(save);
+	}
+
+}
